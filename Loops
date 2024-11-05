@@ -1,0 +1,36 @@
+name = input("Name your pet: ")
+happiness = 100
+
+playing = "yes"
+
+while playing == "yes":
+    # Show pet status
+    print(f"\n{name}'s happiness: {happiness}%")
+    
+    # Get player choice
+    print("\n1. Feed pet (+10 happiness)")
+    print("2. Play with pet (+20 happiness)")
+    choice = input("What would you like to do? (1 or 2): ")
+    
+    # Update happiness based on choice
+    if choice == "1":
+        happiness += 10
+        print(f"You fed {name}!")
+    elif choice == "2":
+        happiness += 20
+        print(f"You played with {name}!")
+    else:
+        print("Please pick 1 or 2!")
+        
+    # Happiness goes down over time
+    happiness -= 15
+    
+    # Check if game is over
+    if happiness <= 0:
+        print(f"\n{name} ran away! Game Over!")
+        break
+        
+    # Ask to play again
+    playing = input("\nKeep playing? (yes/no): ").lower()
+
+print("Thanks for playing!")
